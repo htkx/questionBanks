@@ -21,7 +21,7 @@ public class AddTwoNumbers {
         ListNode result = new ListNode(1);
 
 
-        return l2;
+        return result;
     }
 
     public class ListNode {
