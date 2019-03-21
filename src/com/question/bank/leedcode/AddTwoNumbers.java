@@ -31,24 +31,32 @@ public class AddTwoNumbers {
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        //返回值链表
         ListNode listNode = new ListNode(0);
-        ListNode p;
-        p = listNode;
+        //操作数据的链表
+        ListNode p = listNode;
+        //最后一位数字
         int sum = 0;
-
+        //判断，l1,l2为null sum不为0 表示进位
         while (l1 != null || l2 != null || sum != 0) {
+            //l1为null l2即为result
             if (l1 != null) {
                 sum += l1.val;
                 l1 = l1.next;
             }
+            //l2为null l1即为result
             if (l2 != null) {
                 sum += l2.val;
                 l2 = l2.next;
             }
+            //给next赋值
             p.next = new ListNode(sum % 10);
+            //进位数的值
             sum = sum / 10;
+            //定位下个节点
             p = p.next;
         }
+        //返回结果去掉头节点
         return listNode.next;
     }
 
