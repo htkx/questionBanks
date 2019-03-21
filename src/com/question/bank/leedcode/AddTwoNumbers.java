@@ -8,23 +8,51 @@ package com.question.bank.leedcode;
  * 输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
  * 输出：7 -> 0 -> 8
  * 原因：342 + 465 = 807
+ *
  * @author hughjin
  */
 public class AddTwoNumbers {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
+        ListNode list1 = new ListNode(9);
+        list1.next = new ListNode(4);
+        list1.next.next = new ListNode(9);
+        ListNode list2 = new ListNode(4);
+        list2.next = new ListNode(6);
+        list2.next.next = new ListNode(5);
+
+        ListNode result = AddTwoNumbers.addTwoNumbers(list1, list2);
+        // 564 + 949 = 1513
+        System.out.println(result.val);
+        System.out.println(result.next.val);
+        System.out.println(result.next.next.val);
+        System.out.println(result.next.next.next.val);
 
     }
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode result = new ListNode(1);
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode listNode = new ListNode(0);
+        ListNode p;
+        p = listNode;
+        int sum = 0;
 
-
-        return result;
+        while (l1 != null || l2 != null || sum != 0) {
+            if (l1 != null) {
+                sum += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                sum += l2.val;
+                l2 = l2.next;
+            }
+            p.next = new ListNode(sum % 10);
+            sum = sum / 10;
+            p = p.next;
+        }
+        return listNode.next;
     }
 
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 

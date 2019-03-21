@@ -1,10 +1,11 @@
 package com.question.bank.test;
 
+import com.question.bank.leedcode.AddTwoNumbers;
+
 public class TestMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("123123");
+		AddTwoNumbers t = new AddTwoNumbers();
 	}
 
 }

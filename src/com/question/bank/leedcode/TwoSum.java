@@ -9,11 +9,11 @@ class TwoSum {
 	public static void main(String[] args) {
 		int[] nums = { 1, 3, 4, 2, 15, 12, 11, 23, 0 };
 		int target = 15;
-		int[] result = Solution.twoSum(nums, target);
+		int[] result = TwoSum.twoSum(nums, target);
 		for (int i : result) {
 			System.out.println(i);
 		}
-		int[] result2 = Solution.twoSum2(nums, target);
+		int[] result2 = TwoSum.twoSum2(nums, target);
 		for (int i : result2) {
 			System.out.println(i);
 		}
