@@ -15,11 +15,17 @@ package com.question.bank.leedcode;
 public class Reverse {
 
     public static void main(String[] args) {
-        reverse(321);
-        reverse(9780);
-        reverse(-1580);
+        reverse2(321);
+        reverse2(9780);
+        reverse2(-1580);
     }
 
+    /**
+     * 功能描述 : 字符串反转
+     * 创建时间 : 2019/03/27 14:14
+     * [相关类/方法]
+     * [产品/模块版本]
+     */
     public static int reverse(int x) {
         long l1 = System.currentTimeMillis();
         boolean flag = true;
@@ -35,8 +41,29 @@ public class Reverse {
         }
         int re = flag ? Integer.valueOf(result) : -1 * Integer.valueOf(result);
         long l2 = System.currentTimeMillis() - l1;
-        System.out.println(x + "-->" + re + "，用时："+ l2);
+        System.out.println(x + "-->" + re + "，用时：" + l2);
         return re;
+    }
+
+    /**
+     * 功能描述 : 弹出与推入
+     * 创建时间 : 2019/03/27 14:13
+     * [相关类/方法]
+     * [产品/模块版本]
+     */
+    public static int reverse2(int a) {
+        int result = 0;
+        while (a != 0) {
+            int b = a % 10;
+            a /= 10;
+            if ((result * 10 + b) > Integer.MAX_VALUE
+                    || (result * 10 + b) < Integer.MIN_VALUE) {
+                return 0;
+            }
+            result = result * 10 + b;
+        }
+        System.out.println(result);
+        return result;
     }
 
 }
