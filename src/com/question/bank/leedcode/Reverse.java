@@ -15,10 +15,10 @@ package com.question.bank.leedcode;
 public class Reverse {
 
     public static void main(String[] args) {
-        reverse2(321);
-        reverse2(9780);
-        reverse2(-1580);
-        reverse2(1056389759);
+        reverse(321);
+        reverse(9780);
+        reverse(-1580);
+        reverse(1056389759);
     }
 
     /**
@@ -39,6 +39,10 @@ public class Reverse {
         String result = "";
         for (int i = arr.length - 1; i >= 0; i--) {
             result += arr[i];
+        }
+        long rl = Long.parseLong(result);
+        if (rl > Integer.MAX_VALUE || rl < Integer.MIN_VALUE) {
+            return 0;
         }
         int re = flag ? Integer.valueOf(result) : -1 * Integer.valueOf(result);
         long l2 = System.currentTimeMillis() - l1;
