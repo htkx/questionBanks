@@ -15,10 +15,11 @@ package com.question.bank.leedcode;
 public class Reverse {
 
     public static void main(String[] args) {
-        reverse(321);
-        reverse(9780);
-        reverse(-1580);
-        reverse(1056389759);
+//        reverse(321);
+//        reverse(9780);
+//        reverse(-1580);
+//        reverse(1056389759);
+        reverse(-2147483648);
     }
 
     /**
@@ -28,25 +29,23 @@ public class Reverse {
      * [产品/模块版本]
      */
     public static int reverse(int x) {
-        long l1 = System.currentTimeMillis();
         boolean flag = true;
+        long a = x;
         if (x < 0) {
             flag = false;
-            x *= -1;
+            a = -(long) x;
         }
-        String str = String.valueOf(x);
+        String str = String.valueOf(a);
         char[] arr = str.toCharArray();
         String result = "";
         for (int i = arr.length - 1; i >= 0; i--) {
             result += arr[i];
         }
         long rl = Long.parseLong(result);
-        if (rl > Integer.MAX_VALUE || rl < Integer.MIN_VALUE) {
+        if (rl > Integer.MAX_VALUE || (rl * -1) < Integer.MIN_VALUE) {
             return 0;
         }
         int re = flag ? Integer.valueOf(result) : -1 * Integer.valueOf(result);
-        long l2 = System.currentTimeMillis() - l1;
-        System.out.println(x + "-->" + re + "，用时：" + l2);
         return re;
     }
 
