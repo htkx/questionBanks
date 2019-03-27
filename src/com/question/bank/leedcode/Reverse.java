@@ -18,6 +18,7 @@ public class Reverse {
         reverse2(321);
         reverse2(9780);
         reverse2(-1580);
+        reverse2(1056389759);
     }
 
     /**
@@ -56,8 +57,10 @@ public class Reverse {
         while (a != 0) {
             int b = a % 10;
             a /= 10;
-            if ((result * 10 + b) > Integer.MAX_VALUE
-                    || (result * 10 + b) < Integer.MIN_VALUE) {
+            if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && b > 7)) {
+                return 0;
+            }
+            if (result < Integer.MIN_VALUE / 10 || (result == Integer.MIN_VALUE / 10 && b < -8)) {
                 return 0;
             }
             result = result * 10 + b;
