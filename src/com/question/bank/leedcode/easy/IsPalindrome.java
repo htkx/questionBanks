@@ -1,4 +1,4 @@
-package com.question.bank.leedcode;
+package com.question.bank.leedcode.easy;
 
 import com.sun.org.apache.bcel.internal.util.Objects;
 

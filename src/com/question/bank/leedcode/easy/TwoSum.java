@@ -1,4 +1,4 @@
-package com.question.bank.leedcode;
+package com.question.bank.leedcode.easy;
 
 import java.util.HashMap;
 import java.util.Map;

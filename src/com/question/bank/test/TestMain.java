@@ -1,6 +1,6 @@
 package com.question.bank.test;
 
-import com.question.bank.leedcode.AddTwoNumbers;
+import com.question.bank.leedcode.easy.AddTwoNumbers;
 
 public class TestMain {
 
