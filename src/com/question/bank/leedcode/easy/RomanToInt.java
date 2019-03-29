@@ -23,7 +23,7 @@ import java.util.Map;
  */
 public class RomanToInt {
     public static void main(String[] args) {
-        romanToInt("XXVII");
+        romanToInt("MCMXCIV");
     }
 
     public static int romanToInt(String s) {
@@ -38,8 +38,8 @@ public class RomanToInt {
         Map<String, Integer> map = new HashMap<String, Integer>();
         for (int i = 0; i < doubleArr.length; i++) {
             map.put(doubleArr[i][0], Integer.valueOf(doubleArr[i][1]));
-            map.put(doubleArr[i][0] + doubleArr[i][0], Integer.valueOf(doubleArr[i][1])*2);
-            map.put(doubleArr[i][0] + doubleArr[i][0] + doubleArr[i][0], Integer.valueOf(doubleArr[i][1])*3);
+            map.put(doubleArr[i][0] + doubleArr[i][0], Integer.valueOf(doubleArr[i][1]) * 2);
+            map.put(doubleArr[i][0] + doubleArr[i][0] + doubleArr[i][0], Integer.valueOf(doubleArr[i][1]) * 3);
         }
         Map<String, Integer> map2 = new HashMap<String, Integer>();
         //将所有可能的罗马数字放到数组中
@@ -47,10 +47,16 @@ public class RomanToInt {
             map2.put(doubleArr[i * 2][0] + doubleArr[i * 2 + 1][0], Integer.valueOf(doubleArr[i * 2 + 1][1]) - Integer.valueOf(doubleArr[i * 2][1]));
             map2.put(doubleArr[i * 2][0] + doubleArr[i * 2 + 2][0], Integer.valueOf(doubleArr[i * 2 + 2][1]) - Integer.valueOf(doubleArr[i * 2][1]));
         }
-
+        for (Map.Entry<String, Integer> entry : map2.entrySet()) {
+            s = s.replaceAll(entry.getKey(), "," + entry.getValue());
+        }
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            if (s.contains(entry.getKey())) {
-                result += entry.getValue();
+            s = s.replaceAll(entry.getKey(), "," + entry.getValue());
+        }
+        String[] arr = s.split(",");
+        for (String s1 : arr) {
+            if (s1 != null && !s1.equals("")) {
+                result += Integer.valueOf(s1);
             }
         }
         System.out.println(result);
