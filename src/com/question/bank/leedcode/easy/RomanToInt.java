@@ -62,4 +62,38 @@ public class RomanToInt {
         System.out.println(result);
         return result;
     }
+
+    /**
+     * 首先建立一个HashMap来映射符号和值，
+     * 然后对字符串从左到右来，
+     * 如果当前字符代表的值不小于其右边，就加上该值；
+     * 否则就减去该值。
+     * 以此类推到最左边的数，
+     * 最终得到的结果即是答案
+     *
+     * @param s
+     * @return
+     */
+    public static int romanToInt2(String s) {
+        int result = 0;
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+        char[] arr = s.toCharArray();
+        result += map.get(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > arr[i - 1]) {
+                result -= arr[i];
+            } else {
+                result += arr[i];
+            }
+        }
+        System.out.println(result);
+        return result;
+    }
 }
