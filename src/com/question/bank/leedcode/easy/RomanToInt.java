@@ -26,6 +26,9 @@ public class RomanToInt {
         romanToInt("MCMXCIV");
     }
 
+    /**
+     * 思路 : 将所有可能的情况放到集合中，从集合中替换掉字符串中的字符，带有优先级
+     */
     public static int romanToInt(String s) {
         int result = 0;
         String[][] doubleArr = new String[][]{{"I", "1"}
